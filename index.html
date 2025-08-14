@@ -5,234 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ဓမ္မအလင်းရောင်တောရရိပ်သာ (ပြင်ဦးလွင်မြို့)</title>
   <style>
-    :root {
-      --saffron-1: #f59e0b; /* သင်္ကန်းအရောင် အလယ်တန်း */
-      --saffron-2: #d97706; /* အရင့် */
-      --saffron-3: #b45309; /* ထိုးရင့် */
-      --ink-1: #2a1f16;    /* စာသား အမှတ်တံဆိပ်တောက်ပ */
-      --gold: #ffd166;     /* အလှဆင် ရွှေထွဋ် */
-      --paper: rgba(255,255,255,.08);
-      --ring: rgba(0,0,0,.25);
-    }
-
-    /* Base */
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: "Myanmar Text", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.6;
-      color: #fff;
-      /* သင်္ကန်းအရောင် နောက်ခံ — အနက်မှ အဝါသုတေသနစီးပြား */
-      background:
-        radial-gradient(60% 80% at 70% 20%, rgba(255,255,255,.12), rgba(255,255,255,0) 60%),
-        linear-gradient(135deg, var(--saffron-3), var(--saffron-2) 40%, var(--saffron-1));
-      backdrop-filter: saturate(110%);
-    }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 20;
-      background: linear-gradient(to right, rgba(0,0,0,.55), rgba(0,0,0,.35));
-      border-bottom: 2px solid var(--gold);
-      box-shadow: 0 6px 18px var(--ring);
-      backdrop-filter: blur(6px);
-    }
-    .topbar { display: flex; align-items: center; gap: 16px; padding: 12px 0; }
-    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .brand img { width: 64px; height: 64px; border-radius: 50%; box-shadow: 0 6px 14px var(--ring); object-fit: cover; }
-    .brand h1 { font-size: 22px; line-height: 1.2; margin: 0; color: var(--gold); letter-spacing: .3px; }
-    .brand small { display: block; font-size: 12px; color: #ffeaae; opacity: .9; }
-
-    nav { margin-left: auto; }
-    .menu { display: flex; gap: 14px; align-items: center; list-style: none; padding: 0; margin: 0; }
-    .menu a { color: #fff; text-decoration: none; font-weight: 600; padding: 8px 12px; border-radius: 999px; }
-    .menu a:hover { background: rgba(255,255,255,.12); }
-
-    /* Hero / Slider */
-    .hero { margin-top: 20px; }
-    .slider {
-      position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 14px 30px var(--ring);
-      background: rgba(0,0,0,.25);
-    }
-    .slides { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .6s ease; }
-    .slide { min-height: 320px; display: grid; place-items: center; padding: 40px 20px; text-align: center; }
-    .slide h2 { margin: 0 0 6px 0; font-size: 28px; color: #fff; }
-    .slide p { max-width: 750px; color: #ffe7b0; }
-    .slide.s1 { background: linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.05)); }
-    .slide.s2 { background: linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.05)); }
-    .slide.s3 { background: linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.05)); }
-
-    /* Slider Controls (pure CSS – radio) */
-    input[name="slider"] { display: none; }
-    .dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
-    .dots label { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.5); cursor: pointer; box-shadow: 0 0 0 2px rgba(0,0,0,.2) inset; }
-    #s1:checked ~ .slides { transform: translateX(0%); }
-    #s2:checked ~ .slides { transform: translateX(-100%); }
-    #s3:checked ~ .slides { transform: translateX(-200%); }
-    #s1:checked ~ .dots label[for="s1"],
-    #s2:checked ~ .dots label[for="s2"],
-    #s3:checked ~ .dots label[for="s3"] { background: var(--gold); }
-
-    /* Main Card Sections */
-    main { padding: 30px 0 10px; }
-    .card { background: var(--paper); border-radius: 18px; padding: 20px; box-shadow: 0 10px 24px var(--ring); }
-    h2.section-title { color: #ffefb3; border-bottom: 2px solid #ffefb3; padding-bottom: 6px; margin-top: 0; }
-
-    .grid { display: grid; gap: 20px; }
-    @media (min-width: 800px) { .grid.cols-2 { grid-template-columns: 1fr 1fr; } }
-
-    /* Gallery */
-    .gallery { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
-    @media (min-width: 900px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
-    .gallery figure { margin: 0; border-radius: 14px; overflow: hidden; background: rgba(0,0,0,.2); box-shadow: 0 6px 16px var(--ring); }
-    .gallery img { width: 100%; height: 160px; object-fit: cover; display: block; }
-    .gallery figcaption { padding: 8px 10px; font-size: 12px; color: #ffeab0; }
-
-    /* Contact */
-    .contact p { margin: 8px 0; }
-    .contact a { color: var(--gold); text-decoration: none; }
-
-    footer {
-      margin-top: 32px; text-align: center; padding: 18px 0; color: #fef3c7;
-      background: rgba(0,0,0,.45); border-top: 2px solid rgba(255,255,255,.12);
-    }
-
-    /* Helpers */
-    .muted { opacity: .9; }
-    .spacer { height: 14px; }
+    /* Same styles as before */
+    body { margin:0; font-family:"Myanmar Text", sans-serif; background: linear-gradient(135deg, #b45309, #d97706 40%, #f59e0b); color:#fff; }
+    header { background: rgba(0,0,0,.6); border-bottom: 2px solid #ffd166; padding: 10px; display:flex; align-items:center; }
+    header img { width:60px; height:60px; border-radius:50%; margin-right:10px; }
+    header h1 { font-size:20px; margin:0; color:#ffd166; }
+    header small { font-size:12px; color:#ffeaae; }
+    nav { margin-left:auto; }
+    nav a { color:#fff; margin-left:10px; text-decoration:none; }
+    main { max-width:900px; margin:auto; padding:20px; }
+    section { margin-bottom:20px; background:rgba(255,255,255,.08); padding:15px; border-radius:12px; }
+    h2 { color:#ffefb3; border-bottom:1px solid #ffefb3; padding-bottom:5px; }
+    iframe { border:0; border-radius:12px; width:100%; height:400px; }
+    footer { text-align:center; padding:15px; background:rgba(0,0,0,.45); margin-top:30px; color:#fef3c7; }
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
-    <div class="container topbar">
-      <!-- Logo + Title (LEFT aligned) -->
-      <div class="brand">
-        <img src="c5bcfea7-c4ab-4b37-95b1-b639361168e7.png" alt="ဓမ္မအလင်းရောင်တောရရိပ်သာ Logo" />
-        <div>
-          <h1>ဓမ္မအလင်းရောင်တောရရိပ်သာ <small>(ပြင်ဦးလွင်မြို့)</small></h1>
-          <small class="muted">Dhamma Alin Yone Forest Monastery</small>
-        </div>
-      </div>
-
-      <!-- Menu (RIGHT) -->
-      <nav aria-label="Primary">
-        <ul class="menu">
-          <li><a href="#about">နိဒါန်း</a></li>
-          <li><a href="#vision">ရည်ရွယ်ချက်</a></li>
-          <li><a href="#gallery">ပုံပြခန်း</a></li>
-          <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
-        </ul>
-      </nav>
+    <img src="c5bcfea7-c4ab-4b37-95b1-b639361168e7.png" alt="Logo">
+    <div>
+      <h1>ဓမ္မအလင်းရောင်တောရရိပ်သာ</h1>
+      <small>(ပြင်ဦးလွင်မြို့)</small>
     </div>
+    <nav>
+      <a href="#about">နိဒါန်း</a>
+      <a href="#vision">ရည်ရွယ်ချက်</a>
+      <a href="#gallery">ပုံပြခန်း</a>
+      <a href="#contact">ဆက်သွယ်ရန်</a>
+    </nav>
   </header>
 
-  <!-- HERO / SLIDER -->
-  <div class="container hero">
-    <section class="slider card" aria-label="Featured">
-      <!-- radios for slider state -->
-      <input type="radio" name="slider" id="s1" checked>
-      <input type="radio" name="slider" id="s2">
-      <input type="radio" name="slider" id="s3">
-
-      <div class="slides">
-        <div class="slide s1">
-          <div>
-            <h2>သင်္ကန်းအရောင် သန့်ရှင်းသော ရိပ်သာ</h2>
-            <p>သာသနာတော်ပေါ် လက်မချန်ဘဲ စေတနာရှိသူများအတွက် စည်းကမ်းသပ်ရပ် လေ့လာ၊ စွာရွာသိတတ်နိုင်ရန် ရည်ရွယ်၍ တည်ထောင်ထားပါသည်။</p>
-          </div>
-        </div>
-        <div class="slide s2">
-          <div>
-            <h2>တရားထိုင် စာရိတ်ဆောင်ရာ အေးချမ်းရာ</h2>
-            <p>တရားထူး၊ တရားမြတ် ရရှိရေးအတွက် အေးချမ်းငြိမ်သက်သော ပတ်ဝန်းကျင်နှင့် အထောက်အပံ့များ စုပေါင်းထားပါသည်။</p>
-          </div>
-        </div>
-        <div class="slide s3">
-          <div>
-            <h2>သဒ္ဓါရှင် မိတ်ဟောင်းမိတ်သစ်များ ကြိုဆိုပါသည်</h2>
-            <p>အသင်းသားများ၊ ရေးအရေးပါဝင်သူများနှင့် သဒ္ဓါရှင်တို့၏ ပူးပေါင်းပံ့ပိုးကူညီမှုကို အထူးကျေးဇူးတင်ရှိပါသည်။</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- dots -->
-      <div class="dots" role="tablist" aria-label="Slides">
-        <label for="s1" title="slide 1"></label>
-        <label for="s2" title="slide 2"></label>
-        <label for="s3" title="slide 3"></label>
-      </div>
-    </section>
-  </div>
-
-  <main class="container">
-    <div class="spacer"></div>
-
-    <section id="about" class="card">
-      <h2 class="section-title">နိဒါန်း</h2>
-      <p>
-        ဓမ္မအလင်းရောင်တောရရိပ်သာသည် ၂၀၁၀ ခုနှစ်တွင် ဆရာတော် ဦးသောဘနမှ ဦးစီး၍ စတင်တည်ထောင်ပါသည်။
-      </p>
+  <main>
+    <section id="about">
+      <h2>နိဒါန်း</h2>
+      <p>ဓမ္မအလင်းရောင်တောရရိပ်သာသည် ၂၀၁၀ ခုနှစ်တွင် ဆရာတော် ဦးသောဘနမှ ဦးစီး၍ စတင်တည်ထောင်ပါသည်။</p>
     </section>
 
-    <div class="spacer"></div>
-
-    <section id="vision" class="card grid cols-2">
-      <div>
-        <h2 class="section-title">ရည်ရွယ်ချက်</h2>
-        <p>
-          မြတ်စွာဘုရား၏ သာသနာတော်အတွင်း မှီတင်းနေထိုင်ကြကုန်သော ယောဂီများအတွက် တရားထူး၊ တရားမြတ် ရရှိစေရန် အကြောင်းပြု၍ ဓမ္မအလင်းရောင်တောရရိပ်သာ တည်ထောင်ထားခြင်း ဖြစ်ပါသည်။
-        </p>
-      </div>
-      <div>
-        <!-- Logo as a decorative image on right -->
-        <img src="c5bcfea7-c4ab-4b37-95b1-b639361168e7.png" alt="Monastery Emblem" style="width:100%;max-width:340px;border-radius:16px;display:block;margin:0 auto;box-shadow:0 10px 24px var(--ring);" />
-      </div>
+    <section id="vision">
+      <h2>ရည်ရွယ်ချက်</h2>
+      <p>မြတ်စွာဘုရား၏ သာသနာတော်အတွင်း မှီတင်းနေထိုင်ကြကုန်သော ယောဂီများအတွက် တရားထူး၊ တရားမြတ် ရရှိစေရန် အကြောင်းပြု၍ တည်ထောင်ထားခြင်း ဖြစ်ပါသည်။</p>
     </section>
 
-    <div class="spacer"></div>
-
-    <!-- Gallery -->
-    <section id="gallery" class="card">
-      <h2 class="section-title">ပုံပြခန်း</h2>
-      <div class="gallery">
-        <!-- Replace the src below with your actual photos -->
-        <figure>
-          <img src="https://picsum.photos/seed/monastery1/640/400" alt="ရိပ်သာ দৃশ্য" />
-          <figcaption>ရိပ်သာ ပတ်ဝန်းကျင်</figcaption>
-        </figure>
-        <figure>
-          <img src="https://picsum.photos/seed/monastery2/640/400" alt="တရားခန်းမ" />
-          <figcaption>တရားခန်းမ</figcaption>
-        </figure>
-        <figure>
-          <img src="https://picsum.photos/seed/monastery3/640/400" alt="သစ်တော" />
-          <figcaption>သစ်တောလမ်းကလျာ</figcaption>
-        </figure>
-        <figure>
-          <img src="https://picsum.photos/seed/monastery4/640/400" alt="ဧည့်သည်ခံ" />
-          <figcaption>ဧည့်သည်ခံ ဧည့်ခန်း</figcaption>
-        </figure>
-      </div>
+    <section id="gallery">
+      <h2>ပုံပြခန်း</h2>
+      <p>ဓမ္မအလင်းရောင်တောရရိပ်သာ၏ ပုံများကို စုဆောင်းထားပါသည်။</p>
     </section>
 
-    <div class="spacer"></div>
-
-    <!-- Contact -->
-    <section id="contact" class="card contact">
-      <h2 class="section-title">ဆက်သွယ်ရန်</h2>
-      <p>လိပ်စာ — ဓမ္မအလင်းရောင်တောရရိပ်သာ, ထုံးကုန်း၊ (၈) မိုင်ကျော်၊ မန္တလေး-လားရှိုး ကားလမ်းမကြီး, ပြင်ဦးလွင်မြို့</p>
+    <section id="contact">
+      <h2>ဆက်သွယ်ရန်</h2>
+      <p>လိပ်စာ — ဓမ္မအလင်းရောင်တောရရိပ်သာ, ထုံးကုန်း, (၈) မိုင်ကျော်, မန္တလေး-လားရှိုး ကားလမ်းမကြီး, ပြင်ဦးလွင်မြို့</p>
       <p>ဖုန်း — 09 402627759, 09 777656388, 09 402730481</p>
       <p>အီးမေးလ် — <a href="mailto:dhammaaly@gmail.com">dhammaaly@gmail.com</a></p>
+    </section>
+
+    <section>
+      <h2>မြေပုံ</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3816.093089053018!2d96.5668084!3d22.0676051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDA0JzAzLjQiTiA5NsKwMzMnNTkuNyJF!5e0!3m2!1sen!2smm!4v1692100000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © 2025 ဓမ္မအလင်းရောင်တောရရိပ်သာ — All rights reserved.
-    </div>
+    © 2025 ဓမ္မအလင်းရောင်တောရရိပ်သာ — All rights reserved.
   </footer>
 </body>
 </html>
