@@ -23,13 +23,6 @@
             font-size: 1.2rem;
             font-weight: bold;
         }
-        /* Toggle icon color fix */
-        .navbar-toggler {
-            border-color: rgba(255,255,255,0.5);
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
         .carousel-item img {
             height: 450px;
             object-fit: cover;
@@ -59,36 +52,18 @@
             height: 300px;
             border-radius: 10px;
         }
-        /* Title Banner style */
-        .title-banner {
-            text-align: center;
-            background-color: rgba(255, 221, 87, 0.3);
-            padding: 20px;
-            margin-top: 10px;
-            border-radius: 10px;
-        }
-        .title-banner h1 {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .title-banner p {
-            margin-bottom: 0;
-            font-size: 1.1rem;
-            color: #555;
-        }
     </style>
 </head>
 <body>
 
 <!-- Header -->
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="assets/icons/logo.png" alt="Logo"> <!-- logo path ပြင်ထား -->
+            <img src="assets/Logo.png" alt="Logo">
             <span class="ms-2">ဓမ္မအလင်းရောင်တောရရိပ်သာ</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="menu">
@@ -101,13 +76,6 @@
         </div>
     </div>
 </nav>
-
-
-<!-- Title Banner -->
-<div class="title-banner">
-    <h1>ဓမ္မအလင်းရောင်တောရရိပ်သာ (ပြင်ဦးလွင်မြို့)</h1>
-    <p>(လယ်တီမူ အနာဂါမ်ဆရာသက်ကြီးနည်း)</p>
-</div>
 
 <!-- Hero Slider -->
 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
@@ -135,6 +103,18 @@
         <span class="carousel-control-next-icon"></span>
     </button>
 </div>
+
+<!-- ပင်မစာမျက်နှာစာသား -->
+<section class="container">
+    <h2>ပင်မစာမျက်နှာ</h2>
+    <p>
+        ဓမ္မအလင်းရောင်တောရရိပ်သာသည် လယ်တီမူ အနာဂါမ်ဆရာသက်ကြီးနည်း အတိုင်း အမြဲတမ်းတရားစခန်း ရိပ်သာဖြစ်ပါသည်။ 
+        မိမိတို့အားလပ်သည့်အချိန်တွင် လာရောက်အားထုတ်နိုင်ပါသည်။
+    </p>
+    <p>
+        မှတ်ချက်။ သင်္ကြန်အထူးတရားစခန်းများအတွက် Facebook Page တွင် နှစ်စဉ်နှစ်တိုင်း ကြောညာလျက် ရှိပါသည်။
+    </p>
+</section>
 
 <!-- နိဒါန်း -->
 <section class="container">
