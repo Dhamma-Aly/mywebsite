@@ -18,10 +18,20 @@
             height: 60px;
             width: auto;
         }
-        .navbar-brand span {
+        .navbar-brand .brand-text {
+            display: flex;
+            flex-direction: column;
             color: #ffd700;
+            margin-left: 10px;
+        }
+        .brand-text .main-title {
             font-size: 1.2rem;
             font-weight: bold;
+        }
+        .brand-text .sub-title {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: #fff;
         }
         .carousel-item img {
             height: 450px;
@@ -61,7 +71,10 @@
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="assets/Logo.png" alt="Logo">
-            <span class="ms-2">ဓမ္မအလင်းရောင်တောရရိပ်သာ</span>
+            <div class="brand-text">
+                <div class="main-title">ဓမ္မအလင်းရောင်တောရရိပ်သာ (ပြင်ဦးလွင်မြို့)</div>
+                <div class="sub-title">(လယ်တီမူ အနာဂါမ်ဆရာသက်ကြီးနည်း)</div>
+            </div>
         </a>
         <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
             <span class="navbar-toggler-icon"></span>
