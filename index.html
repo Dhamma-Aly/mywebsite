@@ -60,33 +60,6 @@
             color: #555;
         }
 
-        /* Scrolling Dhamma Quote */
-        .dhamma-quote {
-            position: fixed;
-            top: 160px; /* navbar (80px) + title-banner height estimate */
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: #ffd700;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 10px 0;
-            text-align: center;
-            z-index: 1050;
-            animation: scrollText 15s linear infinite;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        @keyframes scrollText {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
         .carousel-item img {
             height: 450px;
             object-fit: cover;
@@ -132,6 +105,34 @@
         .gallery-img:hover {
             transform: scale(1.05);
         }
+
+        /* Scrolling Dhamma Quote */
+        .dhamma-quote {
+            position: fixed;
+            top: 160px; /* navbar + title-banner အောက် */
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1050;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .dhamma-quote span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scrollText 15s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 
@@ -159,6 +160,9 @@
         </div>
     </nav>
 
+    <!-- Scrolling Dhamma Quote -->
+    <div class="dhamma-quote"><span>“အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)</span></div>
+
     <!-- Title Banner -->
     <div class="title-banner">
         <h1>ဓမ္မအလင်းရောင်တောရရိပ်သာ (ပြင်ဦးလွင်မြို့)</h1>
@@ -167,11 +171,6 @@
             ဓမ္မအလင်းရောင်တောရရိပ်သာသည် အမြဲတမ်းတရားစခန်းဖြစ်ပါသည်။
             ယောဂီများ အချိန်မရွေး လာရောက်အားထုတ်နိုင်ကြပါသည်။
         </p>
-    </div>
-
-    <!-- Scrolling Dhamma Quote -->
-    <div class="dhamma-quote">
-        “အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)
     </div>
 
     <!-- Hero Slider -->
@@ -187,22 +186,28 @@
         </button>
     </div>
 
-    <!-- ဆောက်လုပ်ဆဲ Section -->
+    <!-- ဆောက်လုပ်ဆဲ -->
     <section class="container" id="construction">
         <h2>ဆောက်လုပ်ဆဲ</h2>
-        <p>"သစ္စာဉာဏ်ရောင်" စေတီတော်မြတ် တည်ထားကိုးကွယ်ရန် အတွက် ဆောက်လုပ်လျက်ရှိပါသည်။ ကုသိုလ်ပါဝင် လှူဒါန်းနိုင်ရေး တိုက်တွန်းနှိုးဆော်အပ်ပါသည်။</p>
+        <p>
+            "သစ္စာဉာဏ်ရောင်" စေတီတော်မြတ် တည်ထားကိုးကွယ်ရန် အတွက် ဆောက်လုပ်လျက်ရှိပါသည်။
+            ကုသိုလ်ပါဝင် လှူဒါန်းနိုင်ရေး တိုက်တွန်းနှိုးဆော်အပ်ပါသည်။
+        </p>
         <div class="row g-3">
             <div class="col-md-4"><img src="assets/Construction1.jpg" class="img-fluid gallery-img" alt="Construction1"></div>
             <div class="col-md-4"><img src="assets/Construction2.jpg" class="img-fluid gallery-img" alt="Construction2"></div>
         </div>
-        <p class="mt-4">"ဓမ္မာရုံ" အသစ်ဆောက်လုပ်လျက်ရှိပါသည်။ ကုသိုလ်ပါဝင် လှူဒါန်းနိုင်ရေးအတွက် နှိုးဆော် တိုက်တွန်းအပ်ပါသည်။</p>
+        <p class="mt-4">
+            "ဓမ္မာရုံ" အသစ်ဆောက်လုပ်လျက်ရှိပါသည်။
+            ကုသိုလ်ပါဝင် လှူဒါန်းနိုင်ရေးအတွက် နှိုးဆော် တိုက်တွန်းအပ်ပါသည်။
+        </p>
         <div class="row g-3">
             <div class="col-md-4"><img src="assets/Construction3.jpg" class="img-fluid gallery-img" alt="Construction3"></div>
             <div class="col-md-4"><img src="assets/Construction4.jpg" class="img-fluid gallery-img" alt="Construction4"></div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery -->
     <section class="container" id="gallery">
         <h2>မှတ်တမ်းဓာတ်ပုံများ</h2>
         <div class="row g-3">
@@ -219,28 +224,6 @@
             <li>လူပုဂ္ဂိုလ်များဆိုင်ရာ အဘိဓမ္မာသင်တန်း</li>
             <li>သုတဓမ္မ ဒီပလိုမာတန်း (Level-1,2,3)</li>
             <li>သုတဓမ္မ BA တန်း (Part 1, Part 2, Part 3)</li>
-        </ul>
-    </section>
-
-    <!-- Introduction Section -->
-    <section class="container my-5">
-        <h2>နိဒါန်း</h2>
-        <p>ဓမ္မအလင်းရောင်တောရရိပ်သာသည် ၂၀၁၀ ခုနှစ်တွင် ဆရာတော် ဦးသောဘနမှ ဦးစီး၍ စတင်တည်ထောင်ခဲ့ပါသည်။</p>
-    </section>
-
-    <!-- Purpose Section -->
-    <section class="container my-5">
-        <h2>ရည်ရွယ်ချက်</h2>
-        <p>မြတ်စွာဘုရား၏ သာသနာတော်အတွင်း မှီတင်းနေထိုင်ကြကုန်သော ယောဂီများအတွက် တရားထူး၊ တရားမြတ် ရရှိစေရန် ရည်ရွယ်၍ ဓမ္မအလင်းရောင်တောရရိပ်သာ တည်ထောင်ရခြင်း ဖြစ်ပါသည်။</p>
-    </section>
-
-    <!-- Operations Section -->
-    <section class="container my-5">
-        <h2>လုပ်ငန်းဆောင်ရွက်ခြင်း</h2>
-        <ul>
-            <li>အလှူငွေ လက်ခံဋ္ဌာန</li>
-            <li>ဘဏ္ဏာရေး ထိန်းသိမ်ခြင်း (ငွေစာရင်း)</li>
-            <li>ဘဏ္ဏာရေး စစ်ဆေးခြင်း (ငွေစာရင်းစစ်ဆေးခြင်း)</li>
         </ul>
     </section>
 
