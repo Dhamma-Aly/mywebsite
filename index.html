@@ -13,7 +13,7 @@
             background: linear-gradient(to bottom right, #f8b500, #ffdd57);
             color: #333;
             scroll-behavior: smooth;
-            padding-top: 80px;
+            padding-top: 120px; /* navbar + banner အတွက် အပေါ်နေရာပိုထား */
         }
 
         .navbar {
@@ -38,6 +38,21 @@
 
         .navbar-toggler-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        /* Always Visible Dhamma Quote */
+        .dhamma-quote {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: #222;
+            color: #ffd700;
+            text-align: center;
+            padding: 8px 0;
+            font-weight: bold;
+            z-index: 1031;
+            font-size: 1.1rem;
         }
 
         .title-banner {
@@ -105,34 +120,6 @@
         .gallery-img:hover {
             transform: scale(1.05);
         }
-
-        /* Scrolling Dhamma Quote */
-        .dhamma-quote {
-            position: fixed;
-            top: 160px; /* navbar + title-banner အောက် */
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            color: #ffd700;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 10px 0;
-            text-align: center;
-            z-index: 1050;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .dhamma-quote span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scrollText 15s linear infinite;
-        }
-
-        @keyframes scrollText {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
     </style>
 </head>
 
@@ -160,8 +147,10 @@
         </div>
     </nav>
 
-    <!-- Scrolling Dhamma Quote -->
-    <div class="dhamma-quote"><span>“အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)</span></div>
+    <!-- Fixed Dhamma Quote -->
+    <div class="dhamma-quote">
+        “အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)
+    </div>
 
     <!-- Title Banner -->
     <div class="title-banner">
@@ -197,6 +186,7 @@
             <div class="col-md-4"><img src="assets/Construction1.jpg" class="img-fluid gallery-img" alt="Construction1"></div>
             <div class="col-md-4"><img src="assets/Construction2.jpg" class="img-fluid gallery-img" alt="Construction2"></div>
         </div>
+
         <p class="mt-4">
             "ဓမ္မာရုံ" အသစ်ဆောက်လုပ်လျက်ရှိပါသည်။
             ကုသိုလ်ပါဝင် လှူဒါန်းနိုင်ရေးအတွက် နှိုးဆော် တိုက်တွန်းအပ်ပါသည်။
@@ -207,7 +197,7 @@
         </div>
     </section>
 
-    <!-- Gallery -->
+    <!-- မှတ်တမ်းဓာတ်ပုံများ Gallery -->
     <section class="container" id="gallery">
         <h2>မှတ်တမ်းဓာတ်ပုံများ</h2>
         <div class="row g-3">
@@ -217,13 +207,37 @@
         </div>
     </section>
 
-    <!-- Courses Section -->
+    <!-- သင်တန်းများ Section -->
     <section class="container my-5" id="courses">
         <h2>သင်တန်းများ</h2>
         <ul>
             <li>လူပုဂ္ဂိုလ်များဆိုင်ရာ အဘိဓမ္မာသင်တန်း</li>
             <li>သုတဓမ္မ ဒီပလိုမာတန်း (Level-1,2,3)</li>
             <li>သုတဓမ္မ BA တန်း (Part 1, Part 2, Part 3)</li>
+        </ul>
+    </section>
+
+    <!-- နိဒါန်း -->
+    <section class="container my-5">
+        <h2>နိဒါန်း</h2>
+        <p>ဓမ္မအလင်းရောင်တောရရိပ်သာသည် ၂၀၁၀ ခုနှစ်တွင် ဆရာတော် ဦးသောဘနမှ ဦးစီး၍ စတင်တည်ထောင်ခဲ့ပါသည်။</p>
+    </section>
+
+    <!-- ရည်ရွယ်ချက် -->
+    <section class="container my-5">
+        <h2>ရည်ရွယ်ချက်</h2>
+        <p>မြတ်စွာဘုရား၏ သာသနာတော်အတွင်း မှီတင်းနေထိုင်ကြကုန်သော ယောဂီများအတွက်
+            တရားထူး၊ တရားမြတ် ရရှိစေရန် ရည်ရွယ်၍ ဓမ္မအလင်းရောင်တောရရိပ်သာ တည်ထောင်ရခြင်း ဖြစ်ပါသည်။
+        </p>
+    </section>
+
+    <!-- Main Page Bottom Info -->
+    <section class="container my-5">
+        <h2>လုပ်ငန်းဆောင်ရွက်ခြင်း</h2>
+        <ul>
+            <li>အလှူငွေ လက်ခံဋ္ဌာန</li>
+            <li>ဘဏ္ဏာရေး ထိန်းသိမ်ခြင်း (ငွေစာရင်း)</li>
+            <li>ဘဏ္ဏာရေး စစ်ဆေးခြင်း (ငွေစာရင်းစစ်ဆေးခြင်း)</li>
         </ul>
     </section>
 
@@ -234,14 +248,18 @@
             <p>လိပ်စာ - ဓမ္မအလင်းရောင်တောရရိပ်သာ၊ ထုံးကုန်း၊ (၈)မိုင်ကျော်၊ မန္တလေး-လားရှိုး၊ ကားလမ်းမကြီး၊ ပြင်ဦးလွင်မြို့</p>
             <p>ဖုန်း - 09 402627759, 09 777656388, 09 402730481</p>
             <p>Email - <a href="mailto:dhammaaly@gmail.com">dhammaaly@gmail.com</a></p>
+
+            <!-- Facebook link အရည်အသွေး -->
             <p class="mt-2 mb-0">
                 <a href="https://www.facebook.com/share/p/19mtBjuhq9/?mibextid=WC7FNe" target="_blank" title="Facebook Page">
                     <i class="fab fa-facebook fa-lg" style="color:#4267B2;"></i> ဓမ္မအလင်းရောင်တောရရိပ်သာ
                 </a>
             </p>
+
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3816.12345678!2d96.5668084!3d22.0676051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smm!4v1234567890">
             </iframe>
+
             <p class="mt-2 mb-0">&copy; 2025 ဓမ္မအလင်းရောင်တောရရိပ်သာ</p>
         </div>
     </footer>
