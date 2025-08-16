@@ -105,6 +105,38 @@
         .gallery-img:hover {
             transform: scale(1.05);
         }
+
+        /* Fixed scrolling Dhamma Quote */
+        .dhamma-quote {
+            position: fixed;
+            top: 60px; /* Navbar အောက် */
+            left: 0;
+            width: 100%;
+            background: rgba(34, 34, 34, 0.9);
+            color: #ffd700;
+            padding: 8px 0;
+            overflow: hidden;
+            z-index: 2000;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: scroll-left 15s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 
@@ -132,9 +164,11 @@
         </div>
     </nav>
 
-    <!-- Fixed Dhamma Quote -->
+    <!-- Fixed Scrolling Dhamma Quote -->
     <div class="dhamma-quote">
-        “အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)
+        <div class="scrolling-text">
+            “အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)
+        </div>
     </div>
 
     <!-- Title Banner -->
@@ -151,7 +185,6 @@
     <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active"><img src="assets/Photo1.jpg" class="d-block w-100" alt="Photo1"></div>
-    
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -171,7 +204,6 @@
         <div class="row g-3">
             <div class="col-md-4"><img src="assets/Construction1.jpg" class="img-fluid gallery-img" alt="Construction1"></div>
             <div class="col-md-4"><img src="assets/Construction2.jpg" class="img-fluid gallery-img" alt="Construction2"></div>
-            
         </div>
 
         <p class="mt-4">
@@ -181,7 +213,6 @@
         <div class="row g-3">
             <div class="col-md-4"><img src="assets/Construction3.jpg" class="img-fluid gallery-img" alt="Construction3"></div>
             <div class="col-md-4"><img src="assets/Construction4.jpg" class="img-fluid gallery-img" alt="Construction4"></div>
-           
         </div>
     </section>
 
@@ -237,7 +268,6 @@
             <p>ဖုန်း - 09 402627759, 09 777656388, 09 402730481</p>
             <p>Email - <a href="mailto:dhammaaly@gmail.com">dhammaaly@gmail.com</a></p>
 
-            <!-- Facebook link အရည်အသွေး -->
             <p class="mt-2 mb-0">
                 <a href="https://www.facebook.com/share/p/19mtBjuhq9/?mibextid=WC7FNe" target="_blank" title="Facebook Page">
                     <i class="fab fa-facebook fa-lg" style="color:#4267B2;"></i> ဓမ္မအလင်းရောင်တောရရိပ်သာ
