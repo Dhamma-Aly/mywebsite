@@ -91,13 +91,21 @@
             color: #555;
         }
 
-        /* Responsive Hero Slider */
-        .carousel-item img {
+        /* Responsive Hero Slider with wrapper */
+        .carousel-item-wrapper {
             width: 100%;
             height: 60vh;
             min-height: 300px;
-            object-fit: contain; /* original ratio, all people visible */
-            background: #000; /* empty space around image */
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #f8b500, #ffdd57);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item-wrapper img {
+            height: 100%;
+            width: auto;
         }
 
         section {
@@ -195,8 +203,16 @@
     <!-- Hero Slider -->
     <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active"><img src="assets/Photo1.jpg" class="d-block w-100" alt="Photo1"></div>
-            <!-- <div class="carousel-item"><img src="assets/Photo2.jpg"></div> ထပ်ထည့်နိုင် -->
+            <div class="carousel-item active">
+                <div class="carousel-item-wrapper">
+                    <img src="assets/Photo1.jpg" alt="Photo1">
+                </div>
+            </div>
+            <!-- <div class="carousel-item">
+                <div class="carousel-item-wrapper">
+                    <img src="assets/Photo2.jpg" alt="Photo2">
+                </div>
+            </div> -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
