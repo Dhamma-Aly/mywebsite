@@ -13,7 +13,7 @@
             background: linear-gradient(to bottom right, #f8b500, #ffdd57);
             color: #333;
             scroll-behavior: smooth;
-            padding-top: 120px; /* navbar + banner အတွက် အပေါ်နေရာပိုထား */
+            padding-top: 120px; /* navbar + banner */
         }
 
         .navbar {
@@ -40,7 +40,7 @@
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
 
-        /* Always Visible Dhamma Quote */
+        /* Always Visible Scrolling Dhamma Quote */
         .dhamma-quote {
             position: fixed;
             top: 60px;
@@ -48,11 +48,27 @@
             width: 100%;
             background: #222;
             color: #ffd700;
-            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
             padding: 8px 0;
             font-weight: bold;
             z-index: 1031;
             font-size: 1.1rem;
+        }
+
+        .scroll-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 12s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
         .title-banner {
@@ -147,9 +163,9 @@
         </div>
     </nav>
 
-    <!-- Fixed Dhamma Quote -->
+    <!-- Fixed Scrolling Dhamma Quote -->
     <div class="dhamma-quote">
-        “အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)
+        <div class="scroll-text">“အပ္ပမာဒေန သမ္ပာဒေထ” (မြတ်ဗုဒ္ဓ)</div>
     </div>
 
     <!-- Title Banner -->
@@ -175,7 +191,7 @@
         </button>
     </div>
 
-    <!-- ဆောက်လုပ်ဆဲ -->
+    <!-- ဆောက်လုပ်ဆဲ Section -->
     <section class="container" id="construction">
         <h2>ဆောက်လုပ်ဆဲ</h2>
         <p>
@@ -217,13 +233,13 @@
         </ul>
     </section>
 
-    <!-- နိဒါန်း -->
+    <!-- နိဒါန်း Section -->
     <section class="container my-5">
         <h2>နိဒါန်း</h2>
         <p>ဓမ္မအလင်းရောင်တောရရိပ်သာသည် ၂၀၁၀ ခုနှစ်တွင် ဆရာတော် ဦးသောဘနမှ ဦးစီး၍ စတင်တည်ထောင်ခဲ့ပါသည်။</p>
     </section>
 
-    <!-- ရည်ရွယ်ချက် -->
+    <!-- ရည်ရွယ်ချက် Section -->
     <section class="container my-5">
         <h2>ရည်ရွယ်ချက်</h2>
         <p>မြတ်စွာဘုရား၏ သာသနာတော်အတွင်း မှီတင်းနေထိုင်ကြကုန်သော ယောဂီများအတွက်
@@ -249,7 +265,7 @@
             <p>ဖုန်း - 09 402627759, 09 777656388, 09 402730481</p>
             <p>Email - <a href="mailto:dhammaaly@gmail.com">dhammaaly@gmail.com</a></p>
 
-            <!-- Facebook link အရည်အသွေး -->
+            <!-- Facebook link -->
             <p class="mt-2 mb-0">
                 <a href="https://www.facebook.com/share/p/19mtBjuhq9/?mibextid=WC7FNe" target="_blank" title="Facebook Page">
                     <i class="fab fa-facebook fa-lg" style="color:#4267B2;"></i> ဓမ္မအလင်းရောင်တောရရိပ်သာ
