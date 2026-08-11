@@ -1,0 +1,185 @@
+/* Custom Styles for ဓမ္မအလင်းရောင်တောရရိပ်သာ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Myanmar Text", sans-serif;
+    background: linear-gradient(to bottom right, #f8b500, #ffdd57);
+    color: #333;
+    padding-top: 120px;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1030;
+    backdrop-filter: blur(5px);
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-brand span {
+    color: #ffd700;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Fixed Scrolling Dhamma Quote */
+.dhamma-quote {
+    position: fixed;
+    top: 66px;
+    left: 0;
+    width: 100%;
+    background: #1A1A1A;
+    color: #ffd700;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    font-weight: bold;
+    z-index: 1029;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.scroll-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Title Banner */
+.title-banner {
+    text-align: center;
+    background-color: rgba(255, 221, 87, 0.4);
+    padding: 25px 15px;
+    margin-top: 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(3px);
+}
+
+.title-banner h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.title-banner p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Hero Slider Wrapper */
+.carousel-item-wrapper {
+    width: 100%;
+    height: 45vh;
+    min-height: 250px;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #f8b500, #ffdd57);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.carousel-item-wrapper img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+/* Section Common Styling */
+section {
+    padding: 40px 0;
+}
+
+h2 {
+    border-bottom: 3px solid #f8b500;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    color: #222;
+    font-weight: bold;
+}
+
+/* Gallery Images Optimization & Hover Effect */
+.gallery-img {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #eee;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 40px 0 20px 0;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+    height: 280px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    body {
+        padding-top: 110px;
+    }
+
+    .title-banner h1 {
+        font-size: 1.4rem;
+    }
+
+    .title-banner p {
+        font-size: 0.95rem;
+    }
+
+    .carousel-item-wrapper {
+        height: 30vh;
+    }
+}
